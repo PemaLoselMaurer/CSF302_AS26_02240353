@@ -286,7 +286,7 @@ def main_353():
 main_353()
 
 # ---------------------------------------------------------------------------
-# ANALYSIS / CONCLUSION
+# ANALYSIS
 #
 #   Traditional  three nested loops  ->  O(n^3) in every case
 #   Strassen     T(n) = 7 T(n/2) + O(n^2)  ->  O(n^log2(7)) = O(n^2.81)
@@ -302,8 +302,13 @@ main_353()
 # Despite that, Strassen is about 8x SLOWER in wall clock time at n = 128.
 # The multiplications it saves are cheap int operations, so the 18 extra
 # matrix additions per split - plus the sub-list allocation done by the
-# recursion - cost more than they save.  Both methods give the same result
-# matrix, but at lab sizes the constant factor decides and the traditional
-# method wins; real implementations cut off the recursion (n <= 64) and
-# finish with the triple loop.
+# recursion cost more than they save.
+# ---------------------------------------------------------------------------
+# CONCLUSION
+#
+# Both methods give the same result matrix, and the frequency counts confirm
+# the O(n^3) and O(n^2.81) growth rates.  At lab sizes, however, the constant
+# factor decides and the traditional method wins on running time; real
+# implementations cut off the recursion (n <= 64) and finish with the triple
+# loop.
 # ---------------------------------------------------------------------------

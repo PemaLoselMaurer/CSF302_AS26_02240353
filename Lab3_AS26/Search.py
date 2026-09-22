@@ -251,7 +251,7 @@ def main_353():
 main_353()
 
 # ---------------------------------------------------------------------------
-# ANALYSIS / CONCLUSION
+# ANALYSIS
 #
 #   Binary   T(n) = T(n/2) + O(1)  ->  O(log2 n), 1 comparison per level
 #   Ternary  T(n) = T(n/3) + O(1)  ->  O(log3 n), 2 comparisons per level
@@ -264,7 +264,12 @@ main_353()
 #     100000            17          22          17          11
 #
 # The counts match the recurrences: ternary needs about 37 % fewer iterations
-# but 2*log3(n) = 1.26*log2(n) comparisons, i.e. 26 % more work.  In general a
-# k-way split costs (k-1)*log(n)/log(k) comparisons, which is smallest at
-# k = 2, so binary search is the better choice.
+# but 2*log3(n) = 1.26*log2(n) comparisons, i.e. 26 % more work.
+# ---------------------------------------------------------------------------
+# CONCLUSION
+#
+# Both searches are logarithmic, so the split factor only changes the constant
+# in front of log n.  A k-way split costs (k-1)*log(n)/log(k) comparisons,
+# which is smallest at k = 2, so the extra comparison ternary pays per level
+# outweighs the fewer levels it needs and binary search is the better choice.
 # ---------------------------------------------------------------------------

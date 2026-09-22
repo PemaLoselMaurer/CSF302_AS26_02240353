@@ -325,7 +325,7 @@ def main_353():
 main_353()
 
 # ---------------------------------------------------------------------------
-# ANALYSIS / CONCLUSION
+# ANALYSIS
 #
 #   Traditional  two nested loops over the digits  ->  O(n^2)
 #   Karatsuba    T(n) = 3 T(n/2) + O(n)  ->  O(n^log2(3)) = O(n^1.585)
@@ -348,7 +348,13 @@ main_353()
 #   multiplies by about 1.5 on each doubling of n, putting the cross-over near
 #   4000 digits here.  A digit multiplication in Python costs no more than a
 #   digit addition, so the recursion, string slicing and three O(n) additions
-#   per split outweigh the multiplication saved until n is large.  The
-#   asymptotic gain is real but only pays off past a cutoff, which is why real
-#   libraries fall back to grade-school multiplication for short numbers.
+#   per split outweigh the multiplication saved until n is large.
+# ---------------------------------------------------------------------------
+# CONCLUSION
+#
+# Both methods give the same product, and the counts confirm the O(n^2) and
+# O(n^1.585) growth rates.  The asymptotic gain of Karatsuba is real but only
+# pays off past a cutoff, which is why real libraries fall back to
+# grade-school multiplication for short numbers and switch to Karatsuba only
+# for long ones.
 # ---------------------------------------------------------------------------
